@@ -1,0 +1,11 @@
+{
+  "name": "memequbit",
+  "private": true,
+  "description": "MemeQubit — Quantum-AI Copilot for Pump.fun",
+  "scripts": {
+    "build": "cd frontend && npm ci && npm run build",
+    "dev": "cd frontend && npm run dev"
+  },
+  "devDependencies": {},
+  "engines": { "node": ">=18" }
+}

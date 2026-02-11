@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a14;
+  --foreground: #e2e8f0;
+  --memequbit-primary: #6366f1;
+  --memequbit-accent: #22d3ee;
+  --card: #12121f;
+  --card-foreground: #e2e8f0;
+  --muted: #1e1e32;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  min-height: 100vh;
+}
+
+@keyframes heatmap-cell-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-400 bg-[length:200%_auto] animate-gradient;
+  }
+  .animate-heatmap-cell {
+    animation: heatmap-cell-in 0.4s ease-out forwards;
+  }
+}
