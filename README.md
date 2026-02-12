@@ -6,7 +6,7 @@
 ## The Problem (3 points)
 
 1. **Speed ≠ Profit** — Bots win the gas war but buy scams and tops. Humans can't analyze 10+ metrics in milliseconds.
-2. **Illusion of Liquidity** — Selling 10,000 tokens on Pump.fun causes 20–40% slippage; your "profit" disappears.
+2. **Illusion of Liquidity** — Selling 10,000 tokens on RobinPump.fun causes 20–40% slippage; your "profit" disappears.
 3. **No Hedge Tools** — When memes crash, traders just watch their bags bleed. No cross-pool correlation tools exist.
 
 ---
