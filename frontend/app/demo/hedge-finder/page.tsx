@@ -137,8 +137,8 @@ export default function HedgeFinderDemoPage() {
               </select>
             </div>
             <div>
-              <label className="block text-sm text-slate-400 mb-1">on Pump.fun</label>
-              <span className="text-slate-500 text-sm block py-2">Pump.fun</span>
+              <label className="block text-sm text-slate-400 mb-1">on RobinPump.fun</label>
+              <span className="text-slate-500 text-sm block py-2">RobinPump.fun</span>
             </div>
             <div className="min-w-[180px]">
               <label className="block text-sm text-slate-400 mb-1">Market drops</label>

@@ -1,19 +1,9 @@
 # MemeQubit — Quantum-AI Copilot for Pump.fun
 
 **One-liner (<150 chars):**  
-*Quantum-classical hybrid copilot that helps meme traders snipe winning entries, exit without slippage, and hedge against crashes — live on Pump.fun.*
+*Quantum-classical hybrid copilot that helps meme traders snipe winning entries, exit without slippage, and hedge against crashes — live on RobinPump.fun.*
 
----
-
-## 📽️ Demo & Presentation
-
-- **Loom Video:** [link] — with audio: problem, UI walkthrough, repo structure, full demo. *(Required for judges.)*
-- **Canva Slides:** [link] — team, problem, solution, architecture, live demo.
-- **Live Demo:** [vercel-link]
-
----
-
-## 🔥 The Problem (3 points)
+## The Problem (3 points)
 
 1. **Speed ≠ Profit** — Bots win the gas war but buy scams and tops. Humans can't analyze 10+ metrics in milliseconds.
 2. **Illusion of Liquidity** — Selling 10,000 tokens on Pump.fun causes 20–40% slippage; your "profit" disappears.
@@ -21,7 +11,7 @@
 
 ---
 
-## ⚛️ The Solution (Quantum Advantage)
+## The Solution (Quantum Advantage)
 
 | Module | Classical Approach | Quantum Approach (QUBO) | Result |
 |--------|--------------------|-------------------------|--------|
@@ -31,7 +21,7 @@
 
 ---
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -69,7 +59,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology | Purpose |
 |-------|------------|---------|
@@ -83,7 +73,7 @@
 
 ---
 
-## 🔗 Smart Contracts (Base Testnet)
+## Smart Contracts (Base Testnet)
 
 ### `MemeQubit_Sniper.sol`
 - Stores quantum confidence scores for pools; only trusted backend can execute buys.
@@ -97,21 +87,10 @@
 - Simple stablecoin vault for hedging; backend suggests optimal hedge positions.
 - [Address: 0x...]
 
----
-
-## 📸 Screenshots
-
-*[Placeholder: Quantum Sniper 3D Graph]*  
-*[Placeholder: Batch Exit Timeline]*  
-*[Placeholder: Hedge Finder Correlation Map]*  
-*[Placeholder: Test Results Table]*
-
----
-
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/your-team/memequbit
+git clone https://github.com/enamorak/MemeQubit/
 cd memequbit
 
 # Backend
@@ -127,17 +106,11 @@ npm run dev
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Quantum Sniper QUBO + 3D visualization
 - [x] Quantum Batching optimizer
 - [x] Quantum Hedge Finder (global path)
 - [ ] Smart contract deployment on Base Testnet
 - [ ] Live CoinGecko API integration
-- [ ] Mainnet launch on Pump.fun
-
----
-
-## 📄 License
-
-MIT
+- [ ] Mainnet launch on RobinPump.fun

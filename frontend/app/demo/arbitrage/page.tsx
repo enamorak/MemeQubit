@@ -121,10 +121,10 @@ export default function ArbitrageDemoPage() {
     <div className="bg-memequbit-dark text-slate-200">
       <div className="container mx-auto px-4 py-8">
         <h1 className="mb-2 text-3xl font-bold text-white">
-          MemeQubit Sniper: Optimal entry timing for Pump.fun
+          MemeQubit Sniper: Optimal entry timing for RobinPump.fun
         </h1>
         <p className="mb-8 text-slate-400">
-          MemeQubit quantum-powered analysis of new Pump.fun pools for optimal entry timing based on funding velocity, wallet uniqueness, and social sentiment.
+          MemeQubit quantum-powered analysis of new RobinPump.fun pools for optimal entry timing based on funding velocity, wallet uniqueness, and social sentiment.
           Full algorithm visualization: tokens = nodes, pools = edges; optimal path highlighted.
           Quantum-powered QUBO optimization evaluates multiple factors (funding velocity, wallet distribution, social sentiment) simultaneously to determine the optimal entry timing, while classical approaches check rules sequentially (IF...AND...).
         </p>
