@@ -9,7 +9,7 @@ from datetime import datetime
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api import health, quantum, memequbit
+from api import health, quantum, memequbit, coingecko
 from core.config import settings
 
 _background_task: asyncio.Task | None = None
@@ -65,6 +65,7 @@ app.add_middleware(
 app.include_router(health.router, prefix="/api", tags=["Health"])
 app.include_router(quantum.router, prefix="/api/quantum", tags=["Quantum"])
 app.include_router(memequbit.router, prefix="/api/memequbit", tags=["MemeQubit"])
+app.include_router(coingecko.router, prefix="/api/coingecko", tags=["CoinGecko"])
 
 
 @app.get("/")

@@ -37,3 +37,8 @@ npm-debug.log*
 # Build / dist
 dist/
 build/
+
+# Hardhat (contracts)
+contracts/cache/
+contracts/artifacts/
+contracts/typechain-types/

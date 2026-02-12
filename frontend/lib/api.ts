@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
 
 export async function fetchHealth() {
   const res = await fetch(`${API_BASE}/api/health`);
@@ -393,5 +393,36 @@ export async function runHedgeFinder(body: HedgeFinderRequest): Promise<HedgeFin
     body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+// --- CoinGecko (prices via backend proxy; API key server-side only) ---
+
+export type CoinGeckoPriceParams = {
+  ids: string;           // e.g. "bitcoin,ethereum,solana"
+  vs_currencies?: string;
+  include_market_cap?: boolean;
+  include_24hr_vol?: boolean;
+  include_24hr_change?: boolean;
+  include_last_updated_at?: boolean;
+};
+
+/** Current prices by CoinGecko coin ids. Response shape: { [coinId]: { usd?: number, usd_market_cap?: number, ... } } */
+export async function fetchCoinGeckoPrice(params: CoinGeckoPriceParams): Promise<Record<string, { usd?: number; usd_market_cap?: number; usd_24h_vol?: number; usd_24h_change?: number; last_updated_at?: number }>> {
+  const sp = new URLSearchParams();
+  sp.set("ids", params.ids);
+  if (params.vs_currencies) sp.set("vs_currencies", params.vs_currencies);
+  if (params.include_market_cap) sp.set("include_market_cap", "true");
+  if (params.include_24hr_vol) sp.set("include_24hr_vol", "true");
+  if (params.include_24hr_change) sp.set("include_24hr_change", "true");
+  if (params.include_last_updated_at) sp.set("include_last_updated_at", "true");
+  const res = await fetch(`${API_BASE}/api/coingecko/price?${sp.toString()}`);
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+export async function fetchCoinGeckoPing(): Promise<{ ok: boolean; service: string }> {
+  const res = await fetch(`${API_BASE}/api/coingecko/ping`);
+  if (!res.ok) throw new Error("CoinGecko ping failed");
   return res.json();
 }

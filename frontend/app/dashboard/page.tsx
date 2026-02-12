@@ -1,19 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Wifi, WifiOff, Server, Cpu, Fuel } from "lucide-react";
+import { Wifi, WifiOff, Server, Cpu, Fuel, TrendingUp } from "lucide-react";
 import {
   fetchHealth,
   fetchMemeQubitNetwork,
   fetchMemeQubitPools,
   fetchQuantumStatus,
+  fetchCoinGeckoPrice,
 } from "@/lib/api";
+
+const COINS: { id: string; label: string }[] = [
+  { id: "bitcoin", label: "BTC" },
+  { id: "ethereum", label: "ETH" },
+  { id: "solana", label: "SOL" },
+];
 
 export default function DashboardPage() {
   const [health, setHealth] = useState<{ status: string } | null>(null);
   const [network, setNetwork] = useState<Awaited<ReturnType<typeof fetchMemeQubitNetwork>> | null>(null);
   const [poolsCount, setPoolsCount] = useState<number | null>(null);
   const [quantum, setQuantum] = useState<Awaited<ReturnType<typeof fetchQuantumStatus>> | null>(null);
+  const [prices, setPrices] = useState<Record<string, { usd?: number; usd_24h_change?: number }> | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -46,6 +54,28 @@ export default function DashboardPage() {
     load();
     return () => {
       cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function loadPrices() {
+      try {
+        const data = await fetchCoinGeckoPrice({
+          ids: COINS.map((c) => c.id).join(","),
+          vs_currencies: "usd",
+          include_24hr_change: true,
+        });
+        if (!cancelled) setPrices(data);
+      } catch {
+        if (!cancelled) setPrices(null);
+      }
+    }
+    loadPrices();
+    const t = setInterval(loadPrices, 60_000);
+    return () => {
+      cancelled = true;
+      clearInterval(t);
     };
   }, []);
 
@@ -150,6 +180,39 @@ export default function DashboardPage() {
               <p className="mt-2 text-sm text-slate-500">
                 Updated every 30s from MemeQubit chain or demo data.
               </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-700 bg-slate-800/50 p-6 sm:col-span-2 lg:col-span-4">
+              <div className="mb-3 flex items-center gap-2">
+                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <h2 className="text-lg font-semibold text-white">CoinGecko Prices (USD)</h2>
+              </div>
+              <p className="mb-4 text-sm text-slate-500">
+                Live prices via CoinGecko API (set COINGECKO_DEMO_API_KEY in backend .env).
+              </p>
+              <div className="flex flex-wrap gap-4">
+                {COINS.map(({ id, label }) => {
+                  const p = prices?.[id];
+                  const usd = p?.usd;
+                  const change = p?.usd_24h_change;
+                  return (
+                    <div
+                      key={id}
+                      className="rounded-lg border border-slate-600 bg-slate-800/80 px-4 py-3 min-w-[140px]"
+                    >
+                      <span className="text-slate-400">{label}</span>
+                      <div className="mt-1 font-mono text-white">
+                        {usd != null ? `$${usd.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "—"}
+                      </div>
+                      {change != null && (
+                        <span className={change >= 0 ? "text-emerald-400" : "text-red-400"}>
+                          {change >= 0 ? "+" : ""}{change.toFixed(2)}% 24h
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         )}

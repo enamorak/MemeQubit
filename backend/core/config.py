@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     # Comma-separated origins for CORS (e.g. for Vercel: https://your-app.vercel.app)
     CORS_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000"
     POOL_CACHE_TTL_SECONDS: int = 30
+    # CoinGecko Demo API (optional; get key at https://www.coingecko.com/en/api/pricing)
+    COINGECKO_DEMO_API_KEY: str | None = None
 
     class Config:
         env_file = ".env"
