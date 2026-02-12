@@ -71,7 +71,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2 font-semibold text-white transition hover:opacity-90">
           <Target className="h-6 w-6 text-[#3B82F6] transition-transform hover:scale-110" />
           <span className="gradient-text animate-shimmer text-lg">MemeQubit</span>
-          <span className="hidden text-slate-400 sm:inline">Quantum-AI Copilot for Pump.fun</span>
+          <span className="hidden text-slate-400 sm:inline">Quantum-AI Copilot for RobinPump.fun</span>
         </Link>
 
         {/* Desktop nav */}

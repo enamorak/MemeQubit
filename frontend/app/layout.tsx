@@ -14,9 +14,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MemeQubit — Quantum-AI Copilot for Pump.fun",
+  title: "MemeQubit — Quantum-AI Copilot for RobinPump.fun",
   description:
-    "MemeQubit: quantum-classical AI to snipe, hedge, and exit meme coins on Pump.fun with optimal timing. Research prototype.",
+    "MemeQubit: quantum-classical AI to snipe, hedge, and exit meme coins on RobinPump.fun with optimal timing. Research prototype.",
 };
 
 export default function RootLayout({

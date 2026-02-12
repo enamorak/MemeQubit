@@ -15,7 +15,7 @@ export default function DocumentationPage() {
           transition={{ duration: 0.4 }}
         >
           <Target className="h-8 w-8 text-[#3B82F6]" />
-          MemeQubit: Quantum algorithms for Pump.fun traders
+          MemeQubit: Quantum algorithms for RobinPump.fun traders
         </motion.h1>
         <motion.p
           className="mb-10 text-slate-400"
@@ -38,7 +38,7 @@ export default function DocumentationPage() {
             1. Quantum Sniper — Optimal entry timing
           </h2>
           <p className="mb-4 text-slate-400">
-            <strong>Problem:</strong> When to enter a new Pump.fun pool? Bots win on speed but often buy at peaks or on scams. Humans cannot evaluate funding velocity, wallet uniqueness, freshness, and dev activity fast enough.
+            <strong>Problem:</strong> When to enter a new RobinPump.fun pool? Bots win on speed but often buy at peaks or on scams. Humans cannot evaluate funding velocity, wallet uniqueness, freshness, and dev activity fast enough.
           </p>
           <p className="mb-4 text-slate-400">
             <strong>Classical:</strong> Sequential rules (IF velocity &gt; X AND uniqueness &gt; Y THEN score += Z). A few factors, threshold-based. Fast but can miss optimal combinations.

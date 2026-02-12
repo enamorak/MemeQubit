@@ -145,7 +145,9 @@ contract MemeQubit_Sniper {
     }
     
     function recoverEth() external onlyOwner {
-        payable(owner).transfer(address(this).balance);
+        uint256 bal = address(this).balance;
+        (bool ok, ) = payable(owner).call{value: bal}("");
+        require(ok, "Recover failed");
     }
     
     // Signature verification (simplified ECDSA)

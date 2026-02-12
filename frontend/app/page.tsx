@@ -68,7 +68,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              Quantum-AI Copilot for Pump.fun Traders
+              Quantum-AI Copilot for RobinPump.fun Traders
             </motion.h1>
             <motion.p
               className="mb-8 text-xl text-slate-400"

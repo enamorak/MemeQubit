@@ -1,0 +1,15 @@
+{
+  "name": "memequbit-contracts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy:base": "hardhat run scripts/deploy-base.js --network base",
+    "deploy:base-sepolia": "hardhat run scripts/deploy-base.js --network baseSepolia",
+    "clean": "hardhat clean"
+  },
+  "devDependencies": {
+    "hardhat": "^2.19.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0"
+  }
+}
