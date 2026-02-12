@@ -1,4 +1,4 @@
-# MemeQubit — Quantum-AI Copilot for Pump.fun
+# MemeQubit — Quantum-AI Copilot for RobinPump.fun
 
 **One-liner (<150 chars):**  
 *Quantum-classical hybrid copilot that helps meme traders snipe winning entries, exit without slippage, and hedge against crashes — live on RobinPump.fun.*
