@@ -45,7 +45,7 @@ function NavLink({
       href={href}
       className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition ${
         active
-          ? "bg-indigo-600 text-white"
+          ? "bg-[#3B82F6] text-white"
           : "text-slate-300 hover:bg-slate-800 hover:text-white"
       }`}
     >
@@ -66,10 +66,11 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800 bg-memequbit-dark/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-slate-800 bg-memequbit-dark/95 backdrop-blur transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-900/20">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-white">
-          <span className="gradient-text text-lg">MemeQubit</span>
+        <Link href="/" className="flex items-center gap-2 font-semibold text-white transition hover:opacity-90">
+          <Target className="h-6 w-6 text-[#3B82F6] transition-transform hover:scale-110" />
+          <span className="gradient-text animate-shimmer text-lg">MemeQubit</span>
           <span className="hidden text-slate-400 sm:inline">Quantum-AI Copilot for Pump.fun</span>
         </Link>
 
@@ -95,7 +96,7 @@ export function Navbar() {
                   onClick={() => setDemosOpen(!demosOpen)}
                   className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition ${
                     pathname.startsWith("/demo")
-                      ? "bg-indigo-600/80 text-white"
+                      ? "bg-[#3B82F6] text-white"
                       : "text-slate-300 hover:bg-slate-800 hover:text-white"
                   }`}
                 >
@@ -118,7 +119,7 @@ export function Navbar() {
                           onClick={() => setDemosOpen(false)}
                           className={`flex items-center gap-2 px-4 py-2 text-sm transition ${
                             pathname === child.href
-                              ? "bg-indigo-600 text-white"
+                              ? "bg-[#3B82F6] text-white"
                               : "text-slate-300 hover:bg-slate-800 hover:text-white"
                           }`}
                         >
@@ -164,7 +165,7 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm ${
                     pathname === child.href
-                      ? "bg-indigo-600 text-white"
+                      ? "bg-[#3B82F6] text-white"
                       : "text-slate-300 hover:bg-slate-700"
                   }`}
                 >

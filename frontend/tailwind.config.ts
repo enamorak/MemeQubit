@@ -10,10 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         memequbit: {
-          primary: "#6366f1",
-          dark: "#0f0f23",
-          accent: "#22d3ee",
+          primary: "#3B82F6",
+          dark: "#0a0a14",
+          accent: "#3B82F6",
           surface: "#1a1a2e",
+          neon: "#3B82F6",
         },
       },
       fontFamily: {

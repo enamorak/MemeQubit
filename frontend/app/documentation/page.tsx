@@ -2,24 +2,39 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Target, Layers, Shield } from "lucide-react";
 
 export default function DocumentationPage() {
   return (
     <div className="bg-memequbit-dark text-slate-200">
       <div className="container mx-auto max-w-4xl px-4 py-12">
-        <h1 className="mb-2 text-3xl font-bold text-white">
+        <motion.h1
+          className="mb-2 text-3xl font-bold text-white flex items-center gap-2"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <Target className="h-8 w-8 text-[#3B82F6]" />
           MemeQubit: Quantum algorithms for Pump.fun traders
-        </h1>
-        <p className="mb-10 text-slate-400">
+        </motion.h1>
+        <motion.p
+          className="mb-10 text-slate-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
           This page explains the three core modules and how classical vs quantum-inspired methods are compared on test data. All descriptions in English.
-        </p>
+        </motion.p>
 
         <motion.section
           initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4 }}
           className="mb-16 rounded-xl border border-slate-700 bg-slate-800/40 p-8"
         >
-          <h2 className="mb-2 text-xl font-semibold text-white">
+          <h2 className="mb-2 text-xl font-semibold text-white flex items-center gap-2">
+            <Target className="h-5 w-5 text-[#3B82F6]" />
             1. Quantum Sniper — Optimal entry timing
           </h2>
           <p className="mb-4 text-slate-400">
@@ -35,11 +50,13 @@ export default function DocumentationPage() {
 
         <motion.section
           initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4 }}
           className="mb-16 rounded-xl border border-slate-700 bg-slate-800/40 p-8"
         >
-          <h2 className="mb-2 text-xl font-semibold text-white">
+          <h2 className="mb-2 text-xl font-semibold text-white flex items-center gap-2">
+            <Layers className="h-5 w-5 text-[#3B82F6]" />
             2. Quantum Batching — Optimal exit
           </h2>
           <p className="mb-4 text-slate-400">
@@ -55,11 +72,13 @@ export default function DocumentationPage() {
 
         <motion.section
           initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4 }}
           className="mb-16 rounded-xl border border-slate-700 bg-slate-800/40 p-8"
         >
-          <h2 className="mb-2 text-xl font-semibold text-white">
+          <h2 className="mb-2 text-xl font-semibold text-white flex items-center gap-2">
+            <Shield className="h-5 w-5 text-[#3B82F6]" />
             3. Quantum Hedge Finder — Best path to stable
           </h2>
           <p className="mb-4 text-slate-400">
@@ -75,8 +94,9 @@ export default function DocumentationPage() {
 
         <motion.section
           initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4 }}
           className="rounded-xl border border-slate-700 bg-slate-800/40 p-8"
         >
           <h2 className="mb-4 text-xl font-semibold text-white">Summary: Classical vs Quantum on test data</h2>

@@ -54,8 +54,7 @@ export function ConflictHeatmap({
                 ? `${orderIds[i]} vs ${orderIds[j]}: ${value ? "conflict" : "no conflict"}`
                 : `${i} vs ${j}: ${value}`
             }
-            className="rounded-sm transition hover:ring-2 hover:ring-cyan-400"
-            className={animate ? "animate-heatmap-cell" : ""}
+            className={`rounded-sm transition hover:ring-2 hover:ring-cyan-400 ${animate ? "animate-heatmap-cell" : ""}`}
             style={{
               width: cellSize,
               height: cellSize,

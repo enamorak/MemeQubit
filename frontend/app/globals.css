@@ -5,8 +5,8 @@
 :root {
   --background: #0a0a14;
   --foreground: #e2e8f0;
-  --memequbit-primary: #6366f1;
-  --memequbit-accent: #22d3ee;
+  --memequbit-primary: #3B82F6;
+  --memequbit-accent: #3B82F6;
   --card: #12121f;
   --card-foreground: #e2e8f0;
   --muted: #1e1e32;
@@ -34,7 +34,17 @@ body {
     text-wrap: balance;
   }
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-400 bg-[length:200%_auto] animate-gradient;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 bg-[length:200%_auto] animate-gradient;
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+  }
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  .nav-active {
+    @apply bg-blue-500 text-white;
   }
   .animate-heatmap-cell {
     animation: heatmap-cell-in 0.4s ease-out forwards;
